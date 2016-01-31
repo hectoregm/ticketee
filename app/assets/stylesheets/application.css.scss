@@ -1,17 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "projects";
 
-.page-header {
+header {
+  @extend .page-header;
   position: relative;
   padding-bottom: 0px;
 
   &:first-child {
     margin-top: 20px;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    max-width: 55%;
   }
 }
 
@@ -23,4 +21,37 @@ ul.actions {
   right : 2px;
   max-width: 45%;
   text-align: right
+}
+
+a.new, a.edit, a.delete {
+  @extend .btn;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
+}
+
+a.new {
+   @extend .btn-success;
+
+  &:before {
+     @extend .fa-plus;
+   }
+}
+
+a.edit {
+  @extend .btn-primary;
+
+  &:before {
+    @extend .fa-pencil;
+  }
+}
+
+a.delete {
+  @extend .btn-danger;
+
+  &:before {
+    @extend .fa-trash;
+  }
 }
