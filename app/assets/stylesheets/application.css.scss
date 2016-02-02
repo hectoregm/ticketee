@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "projects";
+@import "responsive";
 
 header {
   @extend .page-header;
@@ -16,11 +17,6 @@ header {
 ul.actions {
   @extend .list-unstyled;
   @extend .list-inline;
-  position: absolute;
-  bottom: -2px;
-  right : 2px;
-  max-width: 45%;
-  text-align: right
 }
 
 a.new, a.edit, a.delete {
@@ -62,4 +58,12 @@ a.delete {
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+form {
+  max-width: 500px;
+}
+
+body {
+  padding-top: 70px;
 }
