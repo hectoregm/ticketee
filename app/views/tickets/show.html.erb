@@ -8,6 +8,7 @@
 
     <ul class="actions">
       <li><%= link_to "Edit Ticket", [:edit, @project, @ticket], class: 'edit' %></li>
+      <li><%= link_to "Delete Ticket", [@project, @ticket], method: :delete, class: 'delete' %></li>
     </ul>
   </header>
 
