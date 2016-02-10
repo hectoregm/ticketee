@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "projects";
+@import "tickets";
 @import "responsive";
 
 header {
@@ -29,11 +30,11 @@ a.new, a.edit, a.delete {
 }
 
 a.new {
-   @extend .btn-success;
+  @extend .btn-success;
 
   &:before {
-     @extend .fa-plus;
-   }
+    @extend .fa-plus;
+  }
 }
 
 a.edit {
