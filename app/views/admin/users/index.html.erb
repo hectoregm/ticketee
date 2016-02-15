@@ -1,2 +1,14 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<header>
+  <h1>Users</h1>
+
+  <ul class="actions">
+    <li>
+      <%= link_to 'New User', new_admin_user_path, class: 'new' %>
+    </li>
+</header>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.email, [:admin, user] %></li>
+  <% end %>
+</ul>
