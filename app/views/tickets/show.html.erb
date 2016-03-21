@@ -31,7 +31,6 @@
   <% if @ticket.attachments.any? %>
     <h4>Attachments</h4>
     <div class="attachments">
-      <%= @ticket.attachments.inspect %>
       <% @ticket.attachments.each do |attachment| %>
         <p>
           <%= link_to File.basename(attachment.file.url), attachment_path(attachment) %>
