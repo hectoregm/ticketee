@@ -1,7 +1,2 @@
-class CommentPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
+class CommentPolicy < TicketPolicy
 end
