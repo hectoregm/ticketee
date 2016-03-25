@@ -25,6 +25,12 @@
       <th>Created:</th>
       <th><%= time_ago_in_words(@ticket.created_at) %> ago</th>
     </tr>
+    <% if @ticket.state.present? %>
+      <tr>
+        <th>State:</th>
+        <td><%= render @ticket.state %></td>
+      </tr>
+    <% end %>
   </table>
 
   <%= simple_format(@ticket.description) %>

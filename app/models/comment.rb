@@ -7,4 +7,12 @@ class Comment < ActiveRecord::Base
   validates :text, presence: true
 
   scope :persisted, -> { where.not(id: nil) }
+  after_create :set_ticket_state
+
+  private
+
+  def set_ticket_state
+    ticket.state = state
+    ticket.save!
+  end
 end
