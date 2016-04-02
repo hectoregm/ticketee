@@ -58,5 +58,6 @@ RSpec.configure do |config|
 
   # include Warden module to get access to login_as method
   config.include Warden::Test::Helpers, type: :feature
+  config.include Devise::TestHelpers, type: :controller
   config.after(type: :feature) { Warden.test_reset! }
 end
