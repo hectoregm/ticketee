@@ -34,4 +34,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'email_spec', '~> 1.6.0'
 end
