@@ -18,6 +18,7 @@ gem 'pundit', '~> 0.3.0'
 gem 'carrierwave', '~> 0.10.0'
 gem 'searcher', github: "radar/searcher"
 gem 'fog'
+gem "rails_12factor", group: :production
 
 group :development, :test do
   gem 'byebug'
