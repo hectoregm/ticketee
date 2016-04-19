@@ -16,9 +16,10 @@ gem 'simple_form', '~> 3.1.0'
 gem 'devise', '~> 3.4.1'
 gem 'pundit', '~> 0.3.0'
 gem 'carrierwave', '~> 0.10.0'
-gem 'searcher', github: "radar/searcher"
+gem 'searcher', github: 'radar/searcher'
 gem 'fog'
-gem "rails_12factor", group: :production
+gem 'rails_12factor', group: :production
+gem 'puma', group: :production
 
 group :development, :test do
   gem 'byebug'
