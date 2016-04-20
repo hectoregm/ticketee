@@ -2,5 +2,12 @@ language: ruby
 rvm: 2.2.4
 script: bundle exec rspec
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: e6OY4Hw2gYsppHEfyN+4ehYsO3Y8+8zlObTi1jx2zfv5LdgRvvVBknzxw8G7Z5F8XcdUzkHrbQeBJQyf9/QV6WncG4bPinFzPWr6Mfi5WyKqwSU8+Ir4lKqE+FTnOITLAOZPKVYGP3XuxOqMXUP1160ocTt36/szoHfZgb4gYHRCqO+RoL3H2QZeh9zOLjdMsK5uOLrAH+8rmEo2An30BxJcSYSQh5Tv0lUFnChXT5LMjWuQ64SdPSFB8Ie5f14ng0OWX2B7BilPTYOqMCv5FySHWOMl8d8K1AH9GtwVCMVmUExV2Rq3eZqF5t1aFhaJ0TgagKr3kOqvWdkOSEgDBHtPHyEpLoEhgI1dT+nOB6f1J6r166fQaU5Lq4z3Vn6dpNkzgnKMIGjQHucY1sfYeCrMtyaibDkQoeoL5uZzQ050wDSsXPDzQ2syzxkmq5vPU3ubfZTE0jHYnqALSB9MzCXKaHzhCgSAaol9OLkYr23aEnxms2LZk+2ce/6HVLEYaDrBgUneCZZ0C4OKLGQnmqpGGG5LcsfNdgX6B4F+Sw2yN0DI/I1uNnkabhmQSFWPv2Q1gO5Mx5eAAeMSJCM6hDN4ZqC7jUqlxZlTMFd8FkjsIwCz0dvKep71o80OkF3b0EsHdiQd1VaUP4cmj2y2gILuDWniV5jsSG5Sa439LJU=
+  app: evening-mountain-34027
+  on:
+    repo: hectoregm/ticketee
