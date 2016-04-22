@@ -4,6 +4,14 @@ class API::TicketsController < ApplicationController
 
   attr_reader :current_user
 
+  def create
+    @ticket = @project.tickets.build(ticket_params)
+    authorize @ticket, :create?
+    if @ticket.save
+      render json: @ticket, status: 201
+    end
+  end
+
   def show
     @ticket = @project.tickets.find(params[:id])
     authorize @ticket, :show?
@@ -26,5 +34,13 @@ class API::TicketsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def ticket_params
+    params.require(:ticket).permit(:name, :description)
+  end
+
+  def not_authorized
+    render json: { error: 'Unathorized' }, status: 403
   end
 end
