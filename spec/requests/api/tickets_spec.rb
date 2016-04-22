@@ -42,6 +42,28 @@ RSpec.describe 'Tickeets API' do
       expect(response.body).to eq json
     end
 
+    it 'cannot create a ticket with invalid data' do
+      params = {
+        format: 'json',
+        ticket: {
+          name: '',
+          description: ''
+        }
+      }
+
+      post api_project_tickets_path(project, params), {}, headers
+      expect(response.status).to eq 422
+
+      json = {
+        "errors" => [
+          "Name can't be blank",
+          "Description can't be blank",
+          "Description is too short (minimum is 10 characters)"
+        ]
+      }
+      expect(JSON.parse(response.body)).to eq json
+    end
+
     context 'without permission to view the project' do
       before do
         user.roles.delete_all
