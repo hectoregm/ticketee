@@ -26,4 +26,13 @@ RSpec.describe 'Tickeets API' do
       expect(response.body).to eq json
     end
   end
+
+  context 'as an unathenticated user' do
+    it 'responds with a 401' do
+      get api_project_ticket_path(project, ticket, format: :json)
+      expect(response.status).to eq 401
+      error = { 'error' => 'Unauthorized' }
+      expect(JSON.parse(response.body)).to eq error
+    end
+  end
 end
