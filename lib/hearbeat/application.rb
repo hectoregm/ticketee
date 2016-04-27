@@ -1,4 +1,4 @@
-module Hearbeat
+module Heartbeat
   class Application
     def self.call(env)
       default_headers = { 'Content-Type' => 'text/plain' }
@@ -15,5 +15,3 @@ module Hearbeat
     end
   end
 end
-
-run Hearbeat::Application
