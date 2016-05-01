@@ -11,6 +11,9 @@ module API
 
       get "/:id" do
         ticket = @project.tickets.find(params[:id])
+        unless TicketPolicy.new(@user, ticket).show?
+          halt 404, "The ticket you were looking for could not be found."
+        end
         TicketSerializer.new(ticket).to_json
       end
 
@@ -22,14 +25,22 @@ module API
 
       def set_user
         if env['HTTP_AUTHORIZATION'].present?
-          auth_token = /Token token=(.*)/.match(env['HTTP_AUTHORIZATION'])[1]
-          User.find_by!(api_key: auth_token)
+          if auth_token = /Token token=(.*)/.match(env['HTTP_AUTHORIZATION'])
+            @user = User.find_by(api_key: auth_token[1])
+            return @user if @user.present?
+          end
         end
+
+        unauthenticated!
       end
 
       def params
         hash = super.merge(env['action_dispatch.request.path_parameters'])
         HashWithIndifferentAccess.new(hash)
+      end
+
+      def unauthenticated!
+        halt 401, { error: 'Unauthenticated' }.to_json
       end
     end
   end
